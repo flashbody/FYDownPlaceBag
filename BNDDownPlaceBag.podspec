@@ -4,11 +4,13 @@
 #
 # Any lines starting with a # are optional, but their use is encouraged
 # To learn more about a Podspec see https://guides.cocoapods.org/syntax/podspec.html
-#
+# pod repo push BNDDownPlaceBagSpec BNDDownPlaceBag.podspec --allow-warnings
+# pod lib lint --allow-warnings
+# pod spec lint --allow-warnings
 
 Pod::Spec.new do |s|
   s.name             = 'BNDDownPlaceBag'
-  s.version          = '0.1.0'
+  s.version          = '0.1.2'
   s.summary          = 'A short description of BNDDownPlaceBag.'
 
 # This description is used to generate tags and improve search results.
@@ -25,7 +27,7 @@ TODO: Add long description of the pod here.
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'yfs' => '742043728@qq.com' }
-  s.source           = { :git => 'https://github.com/yfs/BNDDownPlaceBag.git', :tag => s.version.to_s }
+  s.source           = { :git => 'http://192.168.13.215/BND/BNDDownPlaceBag.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '8.0'
