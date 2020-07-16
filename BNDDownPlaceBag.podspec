@@ -30,10 +30,11 @@ TODO: Add long description of the pod here.
   s.source           = { :git => 'http://192.168.13.215/BND/BNDDownPlaceBag.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
-  s.ios.deployment_target = '8.0'
-
-  s.source_files = 'BNDDownPlaceBag/Classes/**/*'
-  
+  s.ios.deployment_target = '10.0'
+  s.user_target_xcconfig = { 'CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES' => 'YES' }
+  s.static_framework = true
+  s.source_files = 'BNDDownPlaceBag/Classes/**/*{.h,.m,.pch}'
+  s.prefix_header_contents = '#import "BNDDownPlaceBagPrefixHeader.pch"'
   # s.resource_bundles = {
   #   'BNDDownPlaceBag' => ['BNDDownPlaceBag/Assets/*.png']
   # }
@@ -42,4 +43,9 @@ TODO: Add long description of the pod here.
   # s.frameworks = 'UIKit', 'MapKit'
 #   s.dependency 'AFNetworking', '~> 4.0.1'
     s.dependency 'YTKNetwork'#,'3.0.0'
+    s.dependency 'AFNetworking'
+    s.dependency 'Masonry'
+    s.dependency 'SVProgressHUD'
+#    s.dependency 'SL_SDKRepository'
+    s.dependency 'SSZipArchive'
 end

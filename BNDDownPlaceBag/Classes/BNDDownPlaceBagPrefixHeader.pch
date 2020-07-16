@@ -1,0 +1,13 @@
+//
+//  BNDDownPlaceBagPrefixHeader.pch
+//  Pods
+//
+//  Created by yfs on 2020/7/16.
+//
+
+#ifndef BNDDownPlaceBagPrefixHeader_pch
+#define BNDDownPlaceBagPrefixHeader_pch
+
+#import "SL_QZWebViewHeader.h"
+
+#endif /* BNDDownPlaceBagPrefixHeader_pch */
