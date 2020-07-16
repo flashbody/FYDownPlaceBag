@@ -5,8 +5,8 @@
 //  Created by until on 2020/1/13.
 //
 
-#ifndef SL_QZWebViewHeader_h
-#define SL_QZWebViewHeader_h
+#ifndef BNDDPBWebViewHeader_h
+#define BNDDPBWebViewHeader_h
 
 // Pods - target - SL_H5ComponentLibrary - buildSetting---Allow Non-modular Includes In Framework Modules 这个值  改为YES.
 
@@ -18,11 +18,11 @@
 #import "SVProgressHUD.h"
 
 //H5资源解压文件存放路径
-#define SL_QZH5ZipFileBasePath   @"Documents/appPage"
+#define BNDDPBH5ZipFileBasePath   @"Documents/appPage"
 //H5资源下载存放的路径
-#define SL_QZH5ZipFileCachePath   @"Documents/cache/appPage"
+#define BNDDPBH5ZipFileCachePath   @"Documents/cache/appPage"
 
-#define SL_QZAcceptTypes [NSSet setWithObjects:@"application/json", @"application/x-www-form-urlencoded",@"text/json", @"text/javascript",@"text/html",@"text/plain", nil]
+#define BNDDPBAcceptTypes [NSSet setWithObjects:@"application/json", @"application/x-www-form-urlencoded",@"text/json", @"text/javascript",@"text/html",@"text/plain", nil]
 
 
 

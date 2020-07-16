@@ -5,37 +5,37 @@
 //  Created by until on 2020/1/10.
 //
 
-#import "SL_QZH5Manage.h"
+#import "BNDDPBH5Manage.h"
 #import "AFNetworking.h"
 #import "SSZipArchive/SSZipArchive.h"
 
-@implementation SL_QZH5Manage
+@implementation BNDDPBH5Manage
 
 + (instancetype)manage
 {
-    static SL_QZH5Manage* instance;
+    static BNDDPBH5Manage* instance;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        instance = [[SL_QZH5Manage alloc] init];
+        instance = [[BNDDPBH5Manage alloc] init];
     });
     return instance;
 }
 
-- (void)sl_QZLoadH5PackageWithUrl:(NSString* )url header:(NSDictionary* )header parameters:(id)parameters method:(NSString *)method andPackageName:(NSString* )packageName andCompetetion:(SL_QZH5ManageH5Block)result
+- (void)BNDDPBLoadH5PackageWithUrl:(NSString* )url header:(NSDictionary* )header parameters:(id)parameters method:(NSString *)method andPackageName:(NSString* )packageName andCompetetion:(BNDDPBH5ManageH5Block)result
 {
     AFHTTPSessionManager* manager = [[AFHTTPSessionManager alloc] initWithBaseURL:nil];
     
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];
-    manager.responseSerializer.acceptableContentTypes = SL_QZAcceptTypes;
+    manager.responseSerializer.acceptableContentTypes = BNDDPBAcceptTypes;
     manager.requestSerializer = [AFJSONRequestSerializer serializer];
     if (header) {
         NSArray* keyArray = header.allKeys;
         for (NSString* key in keyArray) {
-            [manager.requestSerializer setValue:[self sl_QZStringWith:header[key]] forHTTPHeaderField:[self sl_QZStringWith:key]];
+            [manager.requestSerializer setValue:[self BNDDPBStringWith:header[key]] forHTTPHeaderField:[self BNDDPBStringWith:key]];
         }
     }
     
-    NSString* requestUrl = [[self sl_QZStringWith:url] stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
+    NSString* requestUrl = [[self BNDDPBStringWith:url] stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
     
     if ([method isEqualToString:@"POST"]) {
         [manager POST:requestUrl parameters:parameters headers:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
@@ -80,9 +80,9 @@
                 if (resdict && resdict[@"data"]) {
                     NSDictionary* infoDict = resdict[@"data"];
                     //服务器H5版本号
-                    NSString* h5Version = [self sl_QZStringWith:infoDict[@"h5Version"]];
+                    NSString* h5Version = [self BNDDPBStringWith:infoDict[@"h5Version"]];
                     //服务器Zip下载链接
-                    NSString* h5Link = [self sl_QZStringWith:infoDict[@"h5Link"]];
+                    NSString* h5Link = [self BNDDPBStringWith:infoDict[@"h5Link"]];
                     //本地H5版本号
                     NSArray* localArr = [[NSUserDefaults standardUserDefaults] objectForKey:[NSString stringWithFormat:@"SL_QZH5Zip%@",packageName]];
                     
@@ -99,21 +99,21 @@
                         #pragma mark 需要下载
                         //下载中
                         [[NSUserDefaults standardUserDefaults] setObject:@"0" forKey:[NSString stringWithFormat:@"SL_QZLoading%@",packageName]];
-                        [self sl_QZDownloadWebZipDataWithUrl:h5Link andPackageName:packageName andCompetetion:^(BOOL loadResult) {
+                        [self BNDDPBDownloadWebZipDataWithUrl:h5Link andPackageName:packageName andCompetetion:^(BOOL loadResult) {
                             if (loadResult) {
                                 //下载成功
                                 [[NSUserDefaults standardUserDefaults] setObject:@"1" forKey:[NSString stringWithFormat:@"SL_QZLoading%@",packageName]];
                                 [[NSUserDefaults standardUserDefaults] setObject:remoteArray forKey:[NSString stringWithFormat:@"SL_QZH5Zip%@",packageName]];
                                 if (self.resultBlock && [self.loadPageName isEqualToString:packageName]) {
-                                    self.resultBlock(SL_QZH5LoadSuccess, 1.0);
+                                    self.resultBlock(BNDDPBH5LoadSuccess, 1.0);
                                 }
                             }else
                             {
                                 //下载失败
-                                [[NSUserDefaults standardUserDefaults] setObject:@"-1" forKey:[NSString stringWithFormat:@"SL_QZLoading%@",packageName]];
-                                [[NSUserDefaults standardUserDefaults] setObject:@[] forKey:[NSString stringWithFormat:@"SL_QZH5Zip%@",packageName]];
+                                [[NSUserDefaults standardUserDefaults] setObject:@"-1" forKey:[NSString stringWithFormat:@"BNDDPBLoading%@",packageName]];
+                                [[NSUserDefaults standardUserDefaults] setObject:@[] forKey:[NSString stringWithFormat:@"BNDDPBH5Zip%@",packageName]];
                                 if (self.resultBlock && [self.loadPageName isEqualToString:packageName]) {
-                                    self.resultBlock(SL_QZH5LoadFail, 0.0);
+                                    self.resultBlock(BNDDPBH5LoadFail, 0.0);
                                 }
                             }
                             
@@ -144,22 +144,22 @@
                             if ([remoteNum integerValue] > [localNum integerValue]) {
                                 #pragma mark 需要下载
                                 //下载中
-                                [[NSUserDefaults standardUserDefaults] setObject:@"0" forKey:[NSString stringWithFormat:@"SL_QZLoading%@",packageName]];
-                                [self sl_QZDownloadWebZipDataWithUrl:h5Link andPackageName:packageName andCompetetion:^(BOOL loadResult) {
+                                [[NSUserDefaults standardUserDefaults] setObject:@"0" forKey:[NSString stringWithFormat:@"BNDDPBLoading%@",packageName]];
+                                [self BNDDPBDownloadWebZipDataWithUrl:h5Link andPackageName:packageName andCompetetion:^(BOOL loadResult) {
                                     if (loadResult) {
                                         //下载成功
-                                        [[NSUserDefaults standardUserDefaults] setObject:@"1" forKey:[NSString stringWithFormat:@"SL_QZLoading%@",packageName]];
-                                        [[NSUserDefaults standardUserDefaults] setObject:remoteArray forKey:[NSString stringWithFormat:@"SL_QZH5Zip%@",packageName]];
+                                        [[NSUserDefaults standardUserDefaults] setObject:@"1" forKey:[NSString stringWithFormat:@"BNDDPBLoading%@",packageName]];
+                                        [[NSUserDefaults standardUserDefaults] setObject:remoteArray forKey:[NSString stringWithFormat:@"BNDDPBH5Zip%@",packageName]];
                                         if (self.resultBlock && [self.loadPageName isEqualToString:packageName]) {
-                                            self.resultBlock(SL_QZH5LoadSuccess, 1.0);
+                                            self.resultBlock(BNDDPBH5LoadSuccess, 1.0);
                                         }
                                     }else
                                     {
                                         //下载失败
-                                        [[NSUserDefaults standardUserDefaults] setObject:@"-1" forKey:[NSString stringWithFormat:@"SL_QZLoading%@",packageName]];
-                                        [[NSUserDefaults standardUserDefaults] setObject:@[] forKey:[NSString stringWithFormat:@"SL_QZH5Zip%@",packageName]];
+                                        [[NSUserDefaults standardUserDefaults] setObject:@"-1" forKey:[NSString stringWithFormat:@"BNDDPBLoading%@",packageName]];
+                                        [[NSUserDefaults standardUserDefaults] setObject:@[] forKey:[NSString stringWithFormat:@"BNDDPBH5Zip%@",packageName]];
                                         if (self.resultBlock && [self.loadPageName isEqualToString:packageName]) {
-                                            self.resultBlock(SL_QZH5LoadFail, 0.0);
+                                            self.resultBlock(BNDDPBH5LoadFail, 0.0);
                                         }
                                     }
                                     
@@ -171,14 +171,14 @@
                             {
                                 //无需下载, 停止判断
                                 if (self.resultBlock && [self.loadPageName isEqualToString:packageName]) {
-                                    self.resultBlock(SL_QZH5LoadSuccess, 1.0);
+                                    self.resultBlock(BNDDPBH5LoadSuccess, 1.0);
                                 }
                                 result(YES);
                                 return ;
                             }
                         }
                         if (self.resultBlock && [self.loadPageName isEqualToString:packageName]) {
-                            self.resultBlock(SL_QZH5LoadSuccess, 1.0);
+                            self.resultBlock(BNDDPBH5LoadSuccess, 1.0);
                         }
                         result(YES);
                         
@@ -192,7 +192,7 @@
                         result(NO);
                     }
                     if (self.resultBlock && [self.loadPageName isEqualToString:packageName]) {
-                        self.resultBlock(SL_QZH5LoadFail, 0.0);
+                        self.resultBlock(BNDDPBH5LoadFail, 0.0);
                     }
                 }
                 
@@ -203,7 +203,7 @@
                 result(NO);
             }
             if (self.resultBlock && [self.loadPageName isEqualToString:packageName]) {
-                self.resultBlock(SL_QZH5LoadFail, 0.0);
+                self.resultBlock(BNDDPBH5LoadFail, 0.0);
             }
         }];
         
@@ -341,14 +341,14 @@
     
 }
 
-- (void)slCheckLoadingState:(NSString *)packageName andBlock:(SL_QZH5ManageCheckLoadingH5Block)resultBlock
+- (void)slCheckLoadingState:(NSString *)packageName andBlock:(BNDDPBH5ManageCheckLoadingH5Block)resultBlock
 {
-    if ([self loadingState:packageName] == SL_QZH5LoadSuccess) {
+    if ([self loadingState:packageName] == BNDDPBH5LoadSuccess) {
         
-        resultBlock(SL_QZH5LoadSuccess, 1.0);
-    }else if([self loadingState:packageName] == SL_QZH5LoadFail)
+        resultBlock(BNDDPBH5LoadSuccess, 1.0);
+    }else if([self loadingState:packageName] == BNDDPBH5LoadFail)
     {
-        resultBlock(SL_QZH5LoadFail, 0.0);
+        resultBlock(BNDDPBH5LoadFail, 0.0);
     }else
     {
         self.loadPageName = packageName;
@@ -357,39 +357,39 @@
     
 }
 
-- (SL_QZH5LoadState)loadingState:(NSString* )packageName
+- (BNDDPBH5LoadState)loadingState:(NSString* )packageName
 {
-    NSString* pageState = [[NSUserDefaults standardUserDefaults] objectForKey:[NSString stringWithFormat:@"SL_QZLoading%@",packageName]];
-    if ([[self sl_QZStringWith:pageState] integerValue] == 1) {
-        return SL_QZH5LoadSuccess;
+    NSString* pageState = [[NSUserDefaults standardUserDefaults] objectForKey:[NSString stringWithFormat:@"BNDDPBLoading%@",packageName]];
+    if ([[self BNDDPBStringWith:pageState] integerValue] == 1) {
+        return BNDDPBH5LoadSuccess;
         
-    }else if ([[self sl_QZStringWith:pageState] integerValue] == -1)
+    }else if ([[self BNDDPBStringWith:pageState] integerValue] == -1)
     {
-        return SL_QZH5LoadFail;
+        return BNDDPBH5LoadFail;
     }else
     {
-        return SL_QZH5LoadProcess;
+        return BNDDPBH5LoadProcess;
     }
     
 }
 
-- (void)sl_QZDownloadWebZipDataWithUrl:(NSString* )url andPackageName:(NSString* )packageName andCompetetion:(SL_QZH5ManageDownloadH5Block)loadResult
+- (void)BNDDPBDownloadWebZipDataWithUrl:(NSString* )url andPackageName:(NSString* )packageName andCompetetion:(BNDDPBH5ManageDownloadH5Block)loadResult
 {
     NSURL *requestUrl = [NSURL URLWithString:url];
     NSURLRequest *request = [NSURLRequest requestWithURL:requestUrl];
     
     //异步线程下载
     AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc]init];
-    __block NSString *path = [NSString stringWithFormat:@"%@/%@/",NSHomeDirectory(),SL_QZH5ZipFileCachePath];
+    __block NSString *path = [NSString stringWithFormat:@"%@/%@/",NSHomeDirectory(),BNDDPBH5ZipFileCachePath];
     [self createFolder:path];
     NSURLSessionDownloadTask *_downloadTask = [manager downloadTaskWithRequest:request progress:^(NSProgress * _Nonnull downloadProgress) {
         
         double curr=(double)downloadProgress.completedUnitCount;
         double total=(double)downloadProgress.totalUnitCount;
-        NSLog(@"(SL_QZH5Manage/%@)-H5下载进度==%.2f",packageName,curr/total);
+        NSLog(@"(BNDDPBH5Manage/%@)-H5下载进度==%.2f",packageName,curr/total);
         if (self.resultBlock && [self.loadPageName isEqualToString:packageName]) {
             CGFloat progress = curr/total;
-            self.resultBlock(SL_QZH5LoadProcess, progress);
+            self.resultBlock(BNDDPBH5LoadProcess, progress);
         }
     } destination:^NSURL * _Nonnull(NSURL * _Nonnull targetPath, NSURLResponse * _Nonnull response) {
         
@@ -400,7 +400,7 @@
         if (error) {
             //下载失败
             NSLog(@"(%@)-下载失败",packageName);
-            NSString * tempPath = [NSString stringWithFormat:@"%@/%@/%@",NSHomeDirectory(),SL_QZH5ZipFileBasePath,packageName];
+            NSString * tempPath = [NSString stringWithFormat:@"%@/%@/%@",NSHomeDirectory(),BNDDPBH5ZipFileBasePath,packageName];
             @try {
                 [[NSFileManager defaultManager] removeItemAtPath:tempPath error:nil];
                 [[NSFileManager defaultManager] removeItemAtPath:path error:nil];
@@ -429,7 +429,7 @@
                     }else
                     {
                         //解压失败
-                        NSString* tempPath = [NSString stringWithFormat:@"%@/%@/%@",NSHomeDirectory(),SL_QZH5ZipFileBasePath,packageName];
+                        NSString* tempPath = [NSString stringWithFormat:@"%@/%@/%@",NSHomeDirectory(),BNDDPBH5ZipFileBasePath,packageName];
                         @try {
                             [[NSFileManager defaultManager] removeItemAtPath:tempPath error:nil];
                             [[NSFileManager defaultManager] removeItemAtPath:path error:nil];
@@ -474,7 +474,7 @@
 }
 
 //字符串判空处理
-- (NSString* )sl_QZStringWith:(NSString* )string
+- (NSString* )BNDDPBStringWith:(NSString* )string
 {
     NSString* str = [NSString stringWithFormat:@"%@",string];
     if ([str isKindOfClass:[NSNull class]] || str == nil || str.length == 0 || [str isEqualToString:@"(null)"]) {
@@ -498,7 +498,7 @@
 
 - (void)startUnzipH5FileZip:(NSString*)localZipFile FileName:(NSString *)FileName finishBlock:(void(^)(BOOL sucess))finishBlock{
     if([[NSFileManager defaultManager] fileExistsAtPath:localZipFile] && [localZipFile hasSuffix:@"zip"]){
-        NSString * newPath = [NSString stringWithFormat:@"%@/%@/%@",NSHomeDirectory(),SL_QZH5ZipFileBasePath,FileName];
+        NSString * newPath = [NSString stringWithFormat:@"%@/%@/%@",NSHomeDirectory(),BNDDPBH5ZipFileBasePath,FileName];
         BOOL isDirectory = YES;
         if ([[NSFileManager defaultManager] fileExistsAtPath:newPath isDirectory:&isDirectory]) {
             
