@@ -8,5 +8,8 @@
 #ifndef BNDDownPlaceBag_h
 #define BNDDownPlaceBag_h
 
+#import "BNDDPBH5Manage.h"
+#import "BNDDPBWebViewHeader.h"
+
 
 #endif /* BNDDownPlaceBag_h */

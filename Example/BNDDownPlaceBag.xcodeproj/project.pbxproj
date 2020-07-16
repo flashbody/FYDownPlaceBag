@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		1FD92A821C6F90672F830622 /* Pods_BNDDownPlaceBag_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CA33369F5C86E1E3C7CB6A2 /* Pods_BNDDownPlaceBag_Example.framework */; };
 		2BC8CE05997AFD917C2E808E /* Pods_BNDDownPlaceBag_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B41761BB813DE9D405D5EFF0 /* Pods_BNDDownPlaceBag_Tests.framework */; };
+		5EF07AC724C04FD7008FA2F8 /* SL_QZTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EF07AC524C04FD6008FA2F8 /* SL_QZTestViewController.m */; };
+		5EF07ACA24C05020008FA2F8 /* SL_QZWKWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EF07AC924C05020008FA2F8 /* SL_QZWKWebViewController.m */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
 		6003F592195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
@@ -39,6 +41,10 @@
 /* Begin PBXFileReference section */
 		3FC6A563EE8AD25199E05843 /* BNDDownPlaceBag.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = BNDDownPlaceBag.podspec; path = ../BNDDownPlaceBag.podspec; sourceTree = "<group>"; };
 		55F011448F57E5AF686FE3A7 /* Pods-BNDDownPlaceBag_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BNDDownPlaceBag_Tests.release.xcconfig"; path = "Target Support Files/Pods-BNDDownPlaceBag_Tests/Pods-BNDDownPlaceBag_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		5EF07AC524C04FD6008FA2F8 /* SL_QZTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SL_QZTestViewController.m; sourceTree = "<group>"; };
+		5EF07AC624C04FD6008FA2F8 /* SL_QZTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SL_QZTestViewController.h; sourceTree = "<group>"; };
+		5EF07AC824C05020008FA2F8 /* SL_QZWKWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SL_QZWKWebViewController.h; sourceTree = "<group>"; };
+		5EF07AC924C05020008FA2F8 /* SL_QZWKWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SL_QZWKWebViewController.m; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* BNDDownPlaceBag_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BNDDownPlaceBag_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6003F58F195388D20070C39A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -132,6 +138,10 @@
 		6003F593195388D20070C39A /* Example for BNDDownPlaceBag */ = {
 			isa = PBXGroup;
 			children = (
+				5EF07AC824C05020008FA2F8 /* SL_QZWKWebViewController.h */,
+				5EF07AC924C05020008FA2F8 /* SL_QZWKWebViewController.m */,
+				5EF07AC624C04FD6008FA2F8 /* SL_QZTestViewController.h */,
+				5EF07AC524C04FD6008FA2F8 /* SL_QZTestViewController.m */,
 				6003F59C195388D20070C39A /* BNDDPBAppDelegate.h */,
 				6003F59D195388D20070C39A /* BNDDPBAppDelegate.m */,
 				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
@@ -208,6 +218,7 @@
 				6003F587195388D20070C39A /* Frameworks */,
 				6003F588195388D20070C39A /* Resources */,
 				9CD0AAA5FD3A5D2F50B49F30 /* [CP] Embed Pods Frameworks */,
+				D81390EA29C27D6099D25B61 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -350,22 +361,210 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-BNDDownPlaceBag_Example/Pods-BNDDownPlaceBag_Example-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
+				"${BUILT_PRODUCTS_DIR}/Colours/Colours.framework",
+				"${BUILT_PRODUCTS_DIR}/DateTools/DateTools.framework",
+				"${BUILT_PRODUCTS_DIR}/IQKeyboardManager/IQKeyboardManager.framework",
+				"${BUILT_PRODUCTS_DIR}/JDStatusBarNotification/JDStatusBarNotification.framework",
+				"${BUILT_PRODUCTS_DIR}/LBXAlertAction/LBXAlertAction.framework",
+				"${BUILT_PRODUCTS_DIR}/LBXScan/LBXScan.framework",
+				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/MJExtension/MJExtension.framework",
+				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
 				"${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework",
+				"${BUILT_PRODUCTS_DIR}/RSAEncryptor/RSAEncryptor.framework",
+				"${BUILT_PRODUCTS_DIR}/ReactiveObjC/ReactiveObjC.framework",
+				"${BUILT_PRODUCTS_DIR}/SDAutoLayout/SDAutoLayout.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/SLBD_BigDataSDK/SLBD_BigDataSDK.framework",
 				"${BUILT_PRODUCTS_DIR}/SSZipArchive/SSZipArchive.framework",
 				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/TZImagePickerController/TZImagePickerController.framework",
+				"${BUILT_PRODUCTS_DIR}/WebViewJavascriptBridge/WebViewJavascriptBridge.framework",
 				"${BUILT_PRODUCTS_DIR}/YTKNetwork/YTKNetwork.framework",
+				"${BUILT_PRODUCTS_DIR}/YYKit/YYKit.framework",
+				"${BUILT_PRODUCTS_DIR}/ZLPhotoBrowser/ZLPhotoBrowser.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Colours.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DateTools.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManager.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JDStatusBarNotification.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LBXAlertAction.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LBXScan.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJExtension.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Masonry.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RSAEncryptor.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactiveObjC.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDAutoLayout.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SLBD_BigDataSDK.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SSZipArchive.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TZImagePickerController.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/WebViewJavascriptBridge.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YTKNetwork.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YYKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ZLPhotoBrowser.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BNDDownPlaceBag_Example/Pods-BNDDownPlaceBag_Example-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D81390EA29C27D6099D25B61 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BNDDownPlaceBag_Example/Pods-BNDDownPlaceBag_Example-resources.sh",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FuliBaseLibrary/FuliBaseLibrary.bundle",
+				"${PODS_ROOT}/SL_SDKRepository/SL_SDKRepository/Resources/img/SLH5Interaction.bundle/QQ@2x.png",
+				"${PODS_ROOT}/SL_SDKRepository/SL_SDKRepository/Resources/img/SLH5Interaction.bundle/QQ@3x.png",
+				"${PODS_ROOT}/SL_SDKRepository/SL_SDKRepository/Resources/img/SLH5Interaction.bundle/qrcode_scangreen.imageset/qrcode_scangreen@2x.png",
+				"${PODS_ROOT}/SL_SDKRepository/SL_SDKRepository/Resources/img/SLH5Interaction.bundle/share/DD_Icon.imageset/DD_Icon@2x.png",
+				"${PODS_ROOT}/SL_SDKRepository/SL_SDKRepository/Resources/img/SLH5Interaction.bundle/share/DD_Icon.imageset/DD_Icon@3x.png",
+				"${PODS_ROOT}/SL_SDKRepository/SL_SDKRepository/Resources/img/SLH5Interaction.bundle/share/LJ_icon.imageset/LJ_icon@2x.png",
+				"${PODS_ROOT}/SL_SDKRepository/SL_SDKRepository/Resources/img/SLH5Interaction.bundle/share/LJ_icon.imageset/LJ_icon@3x.png",
+				"${PODS_ROOT}/SL_SDKRepository/SL_SDKRepository/Resources/img/SLH5Interaction.bundle/share/qq_haoyou.imageset/qq_haoyou@2x.png",
+				"${PODS_ROOT}/SL_SDKRepository/SL_SDKRepository/Resources/img/SLH5Interaction.bundle/share/qq_haoyou.imageset/qq_haoyou@3x.png",
+				"${PODS_ROOT}/SL_SDKRepository/SL_SDKRepository/Resources/img/SLH5Interaction.bundle/share/qq_kongjian.imageset/qq_kongjian@2x.png",
+				"${PODS_ROOT}/SL_SDKRepository/SL_SDKRepository/Resources/img/SLH5Interaction.bundle/share/qq_kongjian.imageset/qq_kongjian@3x.png",
+				"${PODS_ROOT}/SL_SDKRepository/SL_SDKRepository/Resources/img/SLH5Interaction.bundle/share/weibo.imageset/weibo@2x.png",
+				"${PODS_ROOT}/SL_SDKRepository/SL_SDKRepository/Resources/img/SLH5Interaction.bundle/share/weibo.imageset/weibo@3x.png",
+				"${PODS_ROOT}/SL_SDKRepository/SL_SDKRepository/Resources/img/SLH5Interaction.bundle/share/weixin_haoyou.imageset/weixin_haoyou@2x.png",
+				"${PODS_ROOT}/SL_SDKRepository/SL_SDKRepository/Resources/img/SLH5Interaction.bundle/share/weixin_haoyou.imageset/weixin_haoyou@3x.png",
+				"${PODS_ROOT}/SL_SDKRepository/SL_SDKRepository/Resources/img/SLH5Interaction.bundle/share/weixin_pyq.imageset/weixin_pyq@2x.png",
+				"${PODS_ROOT}/SL_SDKRepository/SL_SDKRepository/Resources/img/SLH5Interaction.bundle/share/weixin_pyq.imageset/weixin_pyq@3x.png",
+				"${PODS_ROOT}/SL_SDKRepository/SL_SDKRepository/Resources/img/SLH5Interaction.bundle/share/XINYOU.imageset/XINYOU@2x.png",
+				"${PODS_ROOT}/SL_SDKRepository/SL_SDKRepository/Resources/img/SLH5Interaction.bundle/share/XINYOU.imageset/XINYOU@3x.png",
+				"${PODS_ROOT}/SL_SDKRepository/SL_SDKRepository/Resources/img/SLH5Interaction.bundle/SL_BackAny@2x.png",
+				"${PODS_ROOT}/SL_SDKRepository/SL_SDKRepository/Resources/img/SLH5Interaction.bundle/SL_BackAny@3x.png",
+				"${PODS_ROOT}/SL_SDKRepository/SL_SDKRepository/Resources/img/SLH5Interaction.bundle/SL_BackD@2x.png",
+				"${PODS_ROOT}/SL_SDKRepository/SL_SDKRepository/Resources/img/SLH5Interaction.bundle/SL_BackD@3x.png",
+				"${PODS_ROOT}/SL_SDKRepository/SL_SDKRepository/Resources/img/SLH5Interaction.bundle/SL_BackW@2x.png",
+				"${PODS_ROOT}/SL_SDKRepository/SL_SDKRepository/Resources/img/SLH5Interaction.bundle/SL_BackW@3x.png",
+				"${PODS_ROOT}/SL_SDKRepository/SL_SDKRepository/Resources/img/SLH5Interaction.bundle/SL_COPYLINK@2x.png",
+				"${PODS_ROOT}/SL_SDKRepository/SL_SDKRepository/Resources/img/SLH5Interaction.bundle/SL_COPYLINK@3x.png",
+				"${PODS_ROOT}/SL_SDKRepository/SL_SDKRepository/Resources/img/SLH5Interaction.bundle/SL_DD@2x.png",
+				"${PODS_ROOT}/SL_SDKRepository/SL_SDKRepository/Resources/img/SLH5Interaction.bundle/SL_DD@3x.png",
+				"${PODS_ROOT}/SL_SDKRepository/SL_SDKRepository/Resources/img/SLH5Interaction.bundle/SL_Delete.imageset/SL_Delete@2x.png",
+				"${PODS_ROOT}/SL_SDKRepository/SL_SDKRepository/Resources/img/SLH5Interaction.bundle/SL_Delete.imageset/SL_Delete@3x.png",
+				"${PODS_ROOT}/SL_SDKRepository/SL_SDKRepository/Resources/img/SLH5Interaction.bundle/sl_flashlight.imageset/sl_flashlight@2x.png",
+				"${PODS_ROOT}/SL_SDKRepository/SL_SDKRepository/Resources/img/SLH5Interaction.bundle/sl_flashlight.imageset/sl_flashlight@3x.png",
+				"${PODS_ROOT}/SL_SDKRepository/SL_SDKRepository/Resources/img/SLH5Interaction.bundle/SL_FZKL@2x.png",
+				"${PODS_ROOT}/SL_SDKRepository/SL_SDKRepository/Resources/img/SLH5Interaction.bundle/SL_FZKL@3x.png",
+				"${PODS_ROOT}/SL_SDKRepository/SL_SDKRepository/Resources/img/SLH5Interaction.bundle/SL_IM@2x.png",
+				"${PODS_ROOT}/SL_SDKRepository/SL_SDKRepository/Resources/img/SLH5Interaction.bundle/SL_IM@3x.png",
+				"${PODS_ROOT}/SL_SDKRepository/SL_SDKRepository/Resources/img/SLH5Interaction.bundle/sl_kouling.imageset/sl_kouling@2x.png",
+				"${PODS_ROOT}/SL_SDKRepository/SL_SDKRepository/Resources/img/SLH5Interaction.bundle/sl_kouling.imageset/sl_kouling@3x.png",
+				"${PODS_ROOT}/SL_SDKRepository/SL_SDKRepository/Resources/img/SLH5Interaction.bundle/SL_passWrodCancel.imageset/SL_passWrodCancel@2x.png",
+				"${PODS_ROOT}/SL_SDKRepository/SL_SDKRepository/Resources/img/SLH5Interaction.bundle/SL_passWrodCancel.imageset/SL_passWrodCancel@3x.png",
+				"${PODS_ROOT}/SL_SDKRepository/SL_SDKRepository/Resources/img/SLH5Interaction.bundle/SL_passWrodCancelBL@2x.png",
+				"${PODS_ROOT}/SL_SDKRepository/SL_SDKRepository/Resources/img/SLH5Interaction.bundle/SL_passWrodCancelBL@3x.png",
+				"${PODS_ROOT}/SL_SDKRepository/SL_SDKRepository/Resources/img/SLH5Interaction.bundle/SL_QQ@2x.png",
+				"${PODS_ROOT}/SL_SDKRepository/SL_SDKRepository/Resources/img/SLH5Interaction.bundle/SL_QQ@3x.png",
+				"${PODS_ROOT}/SL_SDKRepository/SL_SDKRepository/Resources/img/SLH5Interaction.bundle/SL_QQK@2x.png",
+				"${PODS_ROOT}/SL_SDKRepository/SL_SDKRepository/Resources/img/SLH5Interaction.bundle/SL_QQK@3x.png",
+				"${PODS_ROOT}/SL_SDKRepository/SL_SDKRepository/Resources/img/SLH5Interaction.bundle/SL_WEIBO @2x.png",
+				"${PODS_ROOT}/SL_SDKRepository/SL_SDKRepository/Resources/img/SLH5Interaction.bundle/SL_WEIBO@2x.png",
+				"${PODS_ROOT}/SL_SDKRepository/SL_SDKRepository/Resources/img/SLH5Interaction.bundle/SL_WEIBO@3x.png",
+				"${PODS_ROOT}/SL_SDKRepository/SL_SDKRepository/Resources/img/SLH5Interaction.bundle/SL_WEIXIN@2x.png",
+				"${PODS_ROOT}/SL_SDKRepository/SL_SDKRepository/Resources/img/SLH5Interaction.bundle/SL_WEIXIN@3x.png",
+				"${PODS_ROOT}/SL_SDKRepository/SL_SDKRepository/Resources/img/SLH5Interaction.bundle/SL_WXQ@2x.png",
+				"${PODS_ROOT}/SL_SDKRepository/SL_SDKRepository/Resources/img/SLH5Interaction.bundle/SL_WXQ@3x.png",
+				"${PODS_ROOT}/SL_SDKRepository/SL_SDKRepository/Resources/img/SLH5Interaction.bundle/zhanweitu.imageset/zhanweitu.png",
+				"${PODS_ROOT}/SL_SDKRepository/SL_SDKRepository/Resources/img/SL_Close.png",
+				"${PODS_ROOT}/SL_SDKRepository/SL_SDKRepository/Resources/img/XQCH5Interaction.bundle/xqc_h5_intertation_tips_cancel@2x.png",
+				"${PODS_ROOT}/SL_SDKRepository/SL_SDKRepository/Resources/img/XQCH5Interaction.bundle/xqc_h5_intertation_tips_cancel@3x.png",
+				"${PODS_ROOT}/SL_SDKRepository/SL_SDKRepository/Resources/img/SLH5Interaction.bundle",
+				"${PODS_ROOT}/SL_SDKRepository/SL_SDKRepository/Resources/img/XQCH5Interaction.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/ShangLiPay/ShangLiPay.bundle",
+				"${PODS_ROOT}/UMCShare/UMShare/SocialLibraries/Sina/SinaSDK/WeiboSDK.bundle",
+				"${PODS_ROOT}/UMCShare/UMShare/UMSocialUI/UMSocialSDKResources.bundle",
+				"${PODS_ROOT}/XQCPaySDK_Objc/XQCPaySDK_Objc/Bundles/AlipaySDK.bundle",
+				"${PODS_ROOT}/XQCPaySDK_Objc/XQCPaySDK_Objc/Bundles/PosPay_Resource.bundle",
+				"${PODS_ROOT}/XQCPaySDK_Objc/XQCPaySDK_Objc/Bundles/UMSSecKeyboardLibResource.bundle",
+				"${PODS_ROOT}/XQCPaySDK_Objc/XQCPaySDK_Objc/Bundles/XQCPaySDK_Objc.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FuliBaseLibrary.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/QQ@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/QQ@3x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/qrcode_scangreen@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/DD_Icon@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/DD_Icon@3x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/LJ_icon@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/LJ_icon@3x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/qq_haoyou@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/qq_haoyou@3x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/qq_kongjian@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/qq_kongjian@3x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/weibo@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/weibo@3x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/weixin_haoyou@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/weixin_haoyou@3x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/weixin_pyq@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/weixin_pyq@3x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/XINYOU@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/XINYOU@3x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SL_BackAny@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SL_BackAny@3x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SL_BackD@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SL_BackD@3x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SL_BackW@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SL_BackW@3x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SL_COPYLINK@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SL_COPYLINK@3x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SL_DD@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SL_DD@3x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SL_Delete@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SL_Delete@3x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/sl_flashlight@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/sl_flashlight@3x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SL_FZKL@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SL_FZKL@3x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SL_IM@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SL_IM@3x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/sl_kouling@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/sl_kouling@3x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SL_passWrodCancel@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SL_passWrodCancel@3x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SL_passWrodCancelBL@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SL_passWrodCancelBL@3x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SL_QQ@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SL_QQ@3x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SL_QQK@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SL_QQK@3x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SL_WEIBO @2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SL_WEIBO@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SL_WEIBO@3x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SL_WEIXIN@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SL_WEIXIN@3x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SL_WXQ@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SL_WXQ@3x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/zhanweitu.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SL_Close.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/xqc_h5_intertation_tips_cancel@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/xqc_h5_intertation_tips_cancel@3x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SLH5Interaction.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/XQCH5Interaction.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ShangLiPay.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/WeiboSDK.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/UMSocialSDKResources.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AlipaySDK.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/PosPay_Resource.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/UMSSecKeyboardLibResource.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/XQCPaySDK_Objc.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BNDDownPlaceBag_Example/Pods-BNDDownPlaceBag_Example-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -375,7 +574,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5EF07AC724C04FD7008FA2F8 /* SL_QZTestViewController.m in Sources */,
 				6003F59E195388D20070C39A /* BNDDPBAppDelegate.m in Sources */,
+				5EF07ACA24C05020008FA2F8 /* SL_QZWKWebViewController.m in Sources */,
 				6003F5A7195388D20070C39A /* BNDDPBViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
 			);
@@ -506,6 +707,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = ZMRLC2A5DH;
+				ENABLE_BITCODE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BNDDownPlaceBag/BNDDownPlaceBag-Prefix.pch";
 				INFOPLIST_FILE = "BNDDownPlaceBag/BNDDownPlaceBag-Info.plist";
@@ -523,6 +725,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = ZMRLC2A5DH;
+				ENABLE_BITCODE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BNDDownPlaceBag/BNDDownPlaceBag-Prefix.pch";
 				INFOPLIST_FILE = "BNDDownPlaceBag/BNDDownPlaceBag-Info.plist";

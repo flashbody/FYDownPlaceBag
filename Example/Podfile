@@ -1,16 +1,19 @@
-use_frameworks!
+
 
 platform :ios, '10.0'
 
 source 'https://github.com/CocoaPods/Specs.git'
-#source 'http://192.168.13.215/shangli/SL_Specs.git'
+source 'http://192.168.13.215/shangli/SL_Specs.git'
 
 target 'BNDDownPlaceBag_Example' do
   pod 'BNDDownPlaceBag', :path => '../'
-
+use_frameworks!
+pod 'SL_SDKRepository'
   target 'BNDDownPlaceBag_Tests' do
     inherit! :search_paths
 #    pod 'YTKNetwork'#, '3.0.0'
 #    pod 'AFNetworking', '4.0.1'
+  
+ 
   end
 end
