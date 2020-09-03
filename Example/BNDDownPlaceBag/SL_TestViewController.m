@@ -6,16 +6,15 @@
 //  Copyright © 2020 QJwsq. All rights reserved.
 //
 
-#import "SL_QZTestViewController.h"
-//#import <SL_QZWebViewHeader.h>
+#import "SL_TestViewController.h"
 #import "BNDDownPlaceBag.h"
 #import "SL_SDKRepositoryApi.h"
 
-@interface SL_QZTestViewController ()
+@interface SL_TestViewController ()
 
 @end
 
-@implementation SL_QZTestViewController
+@implementation SL_TestViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

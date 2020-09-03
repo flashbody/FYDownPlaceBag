@@ -6,9 +6,9 @@
 //  Copyright © 2020 QJwsq. All rights reserved.
 //
 
-#import "SL_QZWKWebViewController.h"
+#import "SL_WKWebViewController.h"
 
-@interface SL_QZTestViewController : SL_QZWKWebViewController
+@interface SL_TestViewController : SL_WKWebViewController
 
 
 

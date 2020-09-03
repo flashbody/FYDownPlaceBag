@@ -1,9 +1,4 @@
-//
-//  SL_QZWebViewHeader.h
-//  SL_H5ComponentLibrary
-//
-//  Created by until on 2020/1/13.
-//
+
 
 #ifndef BNDDPBWebViewHeader_h
 #define BNDDPBWebViewHeader_h

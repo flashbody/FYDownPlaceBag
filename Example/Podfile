@@ -4,7 +4,8 @@ platform :ios, '10.0'
 
 source 'https://github.com/CocoaPods/Specs.git'
 source 'http://192.168.13.215/shangli/SL_Specs.git'
-
+# 赋力支付
+source 'http://172.16.0.251/ios/fulispecs.git'
 target 'BNDDownPlaceBag_Example' do
   pod 'BNDDownPlaceBag', :path => '../'
 use_frameworks!
@@ -13,7 +14,7 @@ pod 'SL_SDKRepository'
     inherit! :search_paths
 #    pod 'YTKNetwork'#, '3.0.0'
 #    pod 'AFNetworking', '4.0.1'
-  
+    pod 'ZLPhotoBrowser', '3.2.0'
  
   end
 end

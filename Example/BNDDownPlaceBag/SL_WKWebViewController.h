@@ -1,15 +1,8 @@
-//
-//  SL_QZWKWebViewController.h
-//  SL_H5ComponentLibrary
-//
-//  Created by until on 2020/1/13.
-//
+ 
 
 #import <UIKit/UIKit.h>
 #import <WebKit/WebKit.h>
 #import "SL_SDKRepositoryApi.h"
-//#import <SL_SDKRepository/SL_SDKRepositoryApi.h>
-//#import ""
  
 @class WebViewJavascriptBridge;
 
@@ -23,7 +16,7 @@
     如加载其他路由格式, 请自行扩展
  
  */
-@interface SL_QZWKWebViewController : UIViewController
+@interface SL_WKWebViewController : UIViewController
 
 //网页加载工具
 @property (nonatomic, strong)WKWebView* webview;

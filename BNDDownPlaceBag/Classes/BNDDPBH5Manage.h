@@ -1,9 +1,4 @@
-//
-//  SL_QZH5Manage.h
-//  SL_H5ComponentLibrary
-//
-//  Created by until on 2020/1/10.
-//
+
 
 #import <Foundation/Foundation.h>
 typedef enum : NSUInteger {

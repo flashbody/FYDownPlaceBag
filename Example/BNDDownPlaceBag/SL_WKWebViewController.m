@@ -5,20 +5,18 @@
 //  Created by until on 2020/1/13.
 //
 
-#import "SL_QZWKWebViewController.h"
+#import "SL_WKWebViewController.h"
 #import "WebViewJavascriptBridge.h"
 #import "SL_SDKRepositoryApi.h"
 #import "BNDDownPlaceBag.h"
-//#import "SL_ApplicationWillEnterForeground.h"
-//#import "SL_H5ParametersValidation.h"
-@interface SL_QZWKWebViewController ()<WKUIDelegate, WKNavigationDelegate, WKScriptMessageHandler,SL_H5SDKManagerDelegate>
+@interface SL_WKWebViewController ()<WKUIDelegate, WKNavigationDelegate, WKScriptMessageHandler,SL_H5SDKManagerDelegate>
  
 
 
 
 @end
 
-@implementation SL_QZWKWebViewController
+@implementation SL_WKWebViewController
 
 
 - (void)viewDidLoad {

@@ -8,7 +8,7 @@
 
 #import "BNDDPBViewController.h"
 #import "BNDDownPlaceBag.h"
-#import "SL_QZTestViewController.h"
+#import "SL_TestViewController.h"
 
 @interface BNDDPBViewController ()
 
@@ -20,7 +20,7 @@
 {
     [super viewDidLoad];
 	//下载资源包Zip, app启动时调用
-    [[BNDDPBH5Manage manage] BNDDPBLoadH5PackageWithUrl:@"https://beta.shanglike.com/bnd-admin/v1/version/h5" header:nil parameters:@{@"packageName" :@"com.bonade.h5.mall"} method:@"GET" andPackageName:@"com.bonade.h5.mall" andCompetetion:^(BOOL result) {
+    [[BNDDPBH5Manage manage] BNDDPBLoadH5PackageWithUrl:@"https://beta.shanglike.com/bnd-admin/v1/version/h5" header:nil parameters:@{@"packageName" :@"com.bonade.h5.xqcmall"} method:@"GET" andPackageName:@"com.bonade.h5.xqcmall" andCompetetion:^(BOOL result) {
         if (result) {
             //下载解压成功
             NSLog(@"=======");
@@ -35,6 +35,7 @@
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
     [self presentVC];
+     
     return;
     [[BNDDPBH5Manage manage] slCheckLoadingState:@"com.bonade.h5.mall" andBlock:^(BNDDPBH5LoadState state, CGFloat progress) {
         if (state == BNDDPBH5LoadSuccess) {
@@ -57,12 +58,13 @@
 
 - (void)presentVC
 {
-    SL_QZTestViewController* vc = [SL_QZTestViewController new];
+    SL_TestViewController* vc = [SL_TestViewController new];
     
     [self presentViewController:vc animated:YES completion:nil];
     
-    vc.packageName = @"com.bonade.h5.mall";
-    vc.remotePageName = @"#/timeLimit?channel=xsc";
+    vc.packageName = @"com.bonade.h5.xqcmall";
+    vc.remotePageName = @"#/timeLimit?channel=xqc";
+//    vc.remotePageName= @"#/zoneActivity?id=184&share=xqc";
 }
 
 - (void)didReceiveMemoryWarning
