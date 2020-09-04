@@ -19,17 +19,23 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	//下载资源包Zip, app启动时调用
-    [[BNDDPBH5Manage manage] BNDDPBLoadH5PackageWithUrl:@"https://beta.shanglike.com/bnd-admin/v1/version/h5" header:nil parameters:@{@"packageName" :@"com.bonade.h5.xqcmall"} method:@"GET" andPackageName:@"com.bonade.h5.xqcmall" andCompetetion:^(BOOL result) {
-        if (result) {
-            //下载解压成功
-            NSLog(@"=======");
-        }else
-        {
-            //失败
-        }
-        
+    // 解压本地zip包
+//    [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"www/12.png"];
+    NSString * path = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"com.bonade.h5.xqcmall.zip"];
+    [[BNDDPBH5Manage shareManager] startUnzipH5FileZip:path FileName:@"com.bonade.h5.xqcmall" finishBlock:^(BOOL sucess) {
+        NSLog(@"%d", sucess);
     }];
+//	//下载资源包Zip, app启动时调用
+//    [[BNDDPBH5Manage manage] BNDDPBLoadH5PackageWithUrl:@"https://beta.shanglike.com/bnd-admin/v1/version/h5" header:nil parameters:@{@"packageName" :@"com.bonade.h5.xqcmall"} method:@"GET" andPackageName:@"com.bonade.h5.xqcmall" andCompetetion:^(BOOL result) {
+//        if (result) {
+//            //下载解压成功
+//            NSLog(@"=======");
+//        }else
+//        {
+//            //失败
+//        }
+//
+//    }];
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
@@ -37,7 +43,7 @@
     [self presentVC];
      
     return;
-    [[BNDDPBH5Manage manage] slCheckLoadingState:@"com.bonade.h5.mall" andBlock:^(BNDDPBH5LoadState state, CGFloat progress) {
+    [[BNDDPBH5Manage shareManager] slCheckLoadingState:@"com.bonade.h5.mall" andBlock:^(BNDDPBH5LoadState state, CGFloat progress) {
         if (state == BNDDPBH5LoadSuccess) {
             //下载成功, 加载最新页面
             //            NSLog(@"//#");

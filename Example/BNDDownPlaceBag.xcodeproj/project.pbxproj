@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1FD92A821C6F90672F830622 /* Pods_BNDDownPlaceBag_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CA33369F5C86E1E3C7CB6A2 /* Pods_BNDDownPlaceBag_Example.framework */; };
 		2BC8CE05997AFD917C2E808E /* Pods_BNDDownPlaceBag_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B41761BB813DE9D405D5EFF0 /* Pods_BNDDownPlaceBag_Tests.framework */; };
+		5EE8F02525024402007DAECC /* com.bonade.h5.xqcmall.zip in Resources */ = {isa = PBXBuildFile; fileRef = 5EE8F02425024402007DAECC /* com.bonade.h5.xqcmall.zip */; };
 		5EF07AC724C04FD7008FA2F8 /* SL_TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EF07AC524C04FD6008FA2F8 /* SL_TestViewController.m */; };
 		5EF07ACA24C05020008FA2F8 /* SL_WKWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EF07AC924C05020008FA2F8 /* SL_WKWebViewController.m */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
@@ -41,6 +42,7 @@
 /* Begin PBXFileReference section */
 		3FC6A563EE8AD25199E05843 /* BNDDownPlaceBag.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = BNDDownPlaceBag.podspec; path = ../BNDDownPlaceBag.podspec; sourceTree = "<group>"; };
 		55F011448F57E5AF686FE3A7 /* Pods-BNDDownPlaceBag_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BNDDownPlaceBag_Tests.release.xcconfig"; path = "Target Support Files/Pods-BNDDownPlaceBag_Tests/Pods-BNDDownPlaceBag_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		5EE8F02425024402007DAECC /* com.bonade.h5.xqcmall.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = com.bonade.h5.xqcmall.zip; sourceTree = "<group>"; };
 		5EF07AC524C04FD6008FA2F8 /* SL_TestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SL_TestViewController.m; sourceTree = "<group>"; };
 		5EF07AC624C04FD6008FA2F8 /* SL_TestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SL_TestViewController.h; sourceTree = "<group>"; };
 		5EF07AC824C05020008FA2F8 /* SL_WKWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SL_WKWebViewController.h; sourceTree = "<group>"; };
@@ -101,6 +103,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5EE8F02625024541007DAECC /* LocalPage */ = {
+			isa = PBXGroup;
+			children = (
+				5EE8F02425024402007DAECC /* com.bonade.h5.xqcmall.zip */,
+			);
+			name = LocalPage;
+			sourceTree = "<group>";
+		};
 		6003F581195388D10070C39A = {
 			isa = PBXGroup;
 			children = (
@@ -138,6 +148,7 @@
 		6003F593195388D20070C39A /* Example for BNDDownPlaceBag */ = {
 			isa = PBXGroup;
 			children = (
+				5EE8F02625024541007DAECC /* LocalPage */,
 				5EF07AC824C05020008FA2F8 /* SL_WKWebViewController.h */,
 				5EF07AC924C05020008FA2F8 /* SL_WKWebViewController.m */,
 				5EF07AC624C04FD6008FA2F8 /* SL_TestViewController.h */,
@@ -293,6 +304,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */,
+				5EE8F02525024402007DAECC /* com.bonade.h5.xqcmall.zip in Resources */,
 				71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */,
 				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,
 				6003F598195388D20070C39A /* InfoPlist.strings in Resources */,
@@ -746,7 +758,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MARKETING_VERSION = 1.1.0;
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_BUNDLE_IDENTIFIER = org.cocoapods.demo.H5;
 				PRODUCT_NAME = "H5下载包";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -768,7 +780,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MARKETING_VERSION = 1.1.0;
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_BUNDLE_IDENTIFIER = org.cocoapods.demo.H5;
 				PRODUCT_NAME = "H5下载包";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;

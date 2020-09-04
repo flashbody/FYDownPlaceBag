@@ -27,7 +27,9 @@ typedef void(^BNDDPBH5ManageH5TicketBlock)(BOOL result, NSString* ticket);
 
 @property (nonatomic, strong)NSString* loadPageName;
 
-+ (instancetype)manage;
+@property (assign, nonatomic) BOOL isLog;  /**< 是否需要打印 */
+
++ (instancetype)shareManager;
 
 /// 下载H5资源包 Zip包
 /// @param url 下载地址
@@ -58,16 +60,8 @@ typedef void(^BNDDPBH5ManageH5TicketBlock)(BOOL result, NSString* ticket);
 - (void)slCheckLoadingState:(NSString* )packageName andBlock:(BNDDPBH5ManageCheckLoadingH5Block)resultBlock;
 
 
-
-/// 获取ticket
-/// @param url 接口
-/// @param header 请求头
-/// @param parameters 请求体
-/// @param method 请求方式 GET / POST
-/// @param ticketBlock 返回值
-//- (void)slGetTicketWithUrl:(NSString* )url header:(NSDictionary* )header parameters:(id)parameters method:(NSString *)method andCompetetion:(SL_QZH5ManageH5TicketBlock)ticketBlock;
-
-
+/// 解压整个世界
+- (void)startUnzipH5FileZip:(NSString*)localZipFile FileName:(NSString *)FileName finishBlock:(void(^)(BOOL sucess))finishBlock;
 
 
 

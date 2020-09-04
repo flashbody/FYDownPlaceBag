@@ -6,7 +6,7 @@
 
 @implementation BNDDPBH5Manage
 
-+ (instancetype)manage
++ (instancetype)shareManager
 {
     static BNDDPBH5Manage* instance;
     static dispatch_once_t onceToken;
@@ -85,7 +85,7 @@
                         NSDictionary *infoDictionary = [[NSBundle mainBundle] infoDictionary];
 
                         //app名称
-                        NSString *app_Name = [infoDictionary objectForKey:@"CFBundleDisplayName"];
+//                        NSString *app_Name = [infoDictionary objectForKey:@"CFBundleDisplayName"];
 
                         // app版本
                         NSString *sysVersion = [infoDictionary objectForKey:@"CFBundleShortVersionString"];
@@ -277,7 +277,10 @@
         
         double curr=(double)downloadProgress.completedUnitCount;
         double total=(double)downloadProgress.totalUnitCount;
-        NSLog(@"(BNDDPBH5Manage/%@)-H5下载进度==%.2f",packageName,curr/total);
+        if (self.isLog) {
+            NSLog(@"(BNDDPBH5Manage/%@)-H5下载进度==%.2f",packageName,curr/total);
+        }
+        
         if (self.resultBlock && [self.loadPageName isEqualToString:packageName]) {
             CGFloat progress = curr/total;
             self.resultBlock(BNDDPBH5LoadProcess, progress);
@@ -290,7 +293,10 @@
     } completionHandler:^(NSURLResponse * _Nonnull response, NSURL * _Nullable filePath, NSError * _Nullable error) {
         if (error) {
             //下载失败
-            NSLog(@"(%@)-下载失败",packageName);
+            if (self.isLog) {
+                NSLog(@"(%@)-下载失败",packageName);
+            }
+            
             NSString * tempPath = [NSString stringWithFormat:@"%@/%@/%@",NSHomeDirectory(),BNDDPBH5ZipFileBasePath,packageName];
             @try {
                 [[NSFileManager defaultManager] removeItemAtPath:tempPath error:nil];
@@ -311,7 +317,10 @@
                     if (sucess) {
                         //解压成功
                         [[NSFileManager defaultManager] removeItemAtPath:path error:nil];
-                        NSLog(@"(%@)-解压成功",packageName);
+                        if (self.isLog) {
+                            NSLog(@"(%@)-解压成功",packageName);
+                        }
+                        
                         if (loadResult) {
                             loadResult(YES);
                         }
@@ -328,7 +337,10 @@
                         } @catch (NSException *exception) {
                             
                         }
-                        NSLog(@"(%@)-解压失败",packageName);
+                        if (self.isLog) {
+                            NSLog(@"(%@)-解压失败",packageName);
+                        }
+                        
                         if (loadResult) {
                             loadResult(NO);
                         }

@@ -10,7 +10,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'BNDDownPlaceBag'
-  s.version          = '0.1.5'
+  s.version          = '0.1.7'
   s.summary          = 'A short description of BNDDownPlaceBag.'
 
 # This description is used to generate tags and improve search results.
