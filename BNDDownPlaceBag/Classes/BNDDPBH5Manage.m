@@ -409,6 +409,8 @@
         }
         
         [self OpenZip:localZipFile unzipto:newPath finishBlock:finishBlock];
+    }else{
+        finishBlock(false);
     }
 }
 
