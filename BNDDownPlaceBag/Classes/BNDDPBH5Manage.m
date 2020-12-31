@@ -66,7 +66,9 @@
                     NSString* h5Link = [self BNDDPBStringWith:infoDict[@"h5Link"]];
                     //本地H5版本号
                     NSArray* localArr = [[NSUserDefaults standardUserDefaults] objectForKey:[NSString stringWithFormat:@"BNDDPBH5Zip%@",packageName]];
-                    
+                    if (self.isLog) {
+                        NSLog(@"服务器H5版本号==%@,,,下载地址===%@", h5Version,h5Link);
+                    }
                     NSMutableArray* remoteArray = [NSMutableArray arrayWithArray:[h5Version componentsSeparatedByString:@"."]];
 //                    NSString* remoteIndex = @"";
 //                    for (NSInteger i = 0; i < h5Version.length; i ++) {
