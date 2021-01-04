@@ -16,6 +16,8 @@ typedef void(^BNDDPBH5ManageDownloadH5Block)(BOOL loadResult);
 
 typedef void(^BNDDPBH5ManageH5Block)(BOOL result);
 
+typedef void(^BNDDPBH5ManageH5VersionBlock)(BOOL result, NSString* version);
+
 typedef void(^BNDDPBH5ManageCheckLoadingH5Block)(BNDDPBH5LoadState state, CGFloat progress);
 
 typedef void(^BNDDPBH5ManageH5TicketBlock)(BOOL result, NSString* ticket);
@@ -46,7 +48,7 @@ typedef void(^BNDDPBH5ManageH5TicketBlock)(BOOL result, NSString* ticket);
 /// @param packageName H5的包名
 /// @param result 返回值 YES成功, NO失败
 - (void)BNDDPBLoadH5PackageWithUrl:(NSString* )url header:(NSDictionary* )header parameters:(id)parameters method:(NSString *)method andPackageName:(NSString* )packageName andCompetetion:(BNDDPBH5ManageH5Block)result;
-
+- (void)BNDDPBLoadH5PackageWithUrl:(NSString* )url header:(NSDictionary* )header parameters:(id)parameters method:(NSString *)method andPackageName:(NSString* )packageName andVersionCompetetion:(BNDDPBH5ManageH5VersionBlock)result;
 
 /// 获取指定包名的H5下载状态, 下载中, 下载失败显示本地包
 /// @param packageName 包名
