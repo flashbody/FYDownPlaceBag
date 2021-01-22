@@ -3,7 +3,7 @@
 platform :ios, '10.0'
 
 source 'https://github.com/CocoaPods/Specs.git'
-source 'http://192.168.13.215/shangli/SL_Specs.git'
+source 'http://gitlab.shanglike.com/shangli/SL_Specs.git'
 # 赋力支付
 source 'http://172.16.0.251/ios/fulispecs.git'
 target 'BNDDownPlaceBag_Example' do
