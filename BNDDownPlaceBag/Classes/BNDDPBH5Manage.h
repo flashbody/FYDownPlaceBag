@@ -18,7 +18,7 @@ typedef void(^BNDDPBH5ManageH5Block)(BOOL result);
 
 typedef void(^BNDDPBH5ManageH5VersionBlock)(BOOL result, NSString* version);
 
-typedef void(^BNDDPBH5ManageCheckLoadingH5Block)(BNDDPBH5LoadState state, CGFloat progress);
+typedef void(^BNDDPBH5ManageCheckLoadingH5Block)(BNDDPBH5LoadState state, float progress);
 
 typedef void(^BNDDPBH5ManageH5TicketBlock)(BOOL result, NSString* ticket);
 
